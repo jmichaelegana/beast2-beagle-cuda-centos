@@ -1,0 +1,49 @@
+WARNING install-apt-packages.sh doesn't exist, ensure exists for build
+Bootstrap: docker
+From: nvidia/cuda:11.5.1-devel-centos7
+Stage: spython-base
+
+%files
+install-apt-packages.sh /opt/docker/
+install-beagle.sh /opt/docker/
+install-beast.sh /opt/docker/
+%labels
+maintainer "Daniel Park <dpark@broadinstitute.org>"
+maintainer_other "Christopher Tomkins-Tinch <tomkinsc@broadinstitute.org>"
+%post
+
+
+
+
+# System packages, Google Cloud SDK, and locale
+# ca-certificates and wget needed for gosu
+# bzip2, liblz4-toolk, and pigz are useful for packaging and archival
+# google-cloud-sdk needed when using this in GCE
+/opt/docker/install-apt_packages.sh
+
+# Set default locale to en_US.UTF-8
+LANG="en_US.UTF-8"
+LANGUAGE="en_US:en"
+LC_ALL="en_US.UTF-8"
+LD_LIBRARY_PATH=/usr/local/lib:${LD_LIBRARY_PATH}
+PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+LIBRARY_PATH=/usr/local/cuda/lib64/stubs:${LIBRARY_PATH}
+
+/opt/docker/install-beagle.sh
+
+/opt/docker/install-beast.sh
+
+BEAST="/usr/local"
+
+%environment
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US:en"
+export LC_ALL="en_US.UTF-8"
+export LD_LIBRARY_PATH=/usr/local/lib:${LD_LIBRARY_PATH}
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+export LIBRARY_PATH=/usr/local/cuda/lib64/stubs:${LIBRARY_PATH}
+export BEAST="/usr/local"
+%runscript
+exec /bin/bash /bin/bash "$@"
+%startscript
+exec /bin/bash /bin/bash "$@"
