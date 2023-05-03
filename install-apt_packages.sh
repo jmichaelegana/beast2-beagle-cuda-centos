@@ -3,8 +3,8 @@
 set -e -o pipefail
 
 # Add some basics
-dnf update -y
-dnf install -y \
+yum update -y
+yum install -y \
 	lsb-release ca-certificates wget rsync curl \
 	less nano vim git make \
 	dirmngr \
@@ -18,8 +18,8 @@ ln -s /usr/bin/gcc /usr/local/cuda/bin/gcc
 ln -s /usr/bin/g++ /usr/local/cuda/bin/g++
 
 # Upgrade and clean
-dnf upgrade -y
-dnf clean all -y
+yum upgrade -y
+yum clean all -y
 
 echo "Done"
 
