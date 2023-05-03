@@ -3,7 +3,7 @@ FROM nvidia/cuda:11.5.1-devel-centos7
 LABEL maintainer "Daniel Park <dpark@broadinstitute.org>"
 LABEL maintainer_other "Christopher Tomkins-Tinch <tomkinsc@broadinstitute.org>"
 
-COPY install-apt-packages.sh /opt/docker/
+COPY install-apt_packages.sh /opt/docker/
 COPY install-beagle.sh /opt/docker/
 COPY install-beast.sh /opt/docker/
 

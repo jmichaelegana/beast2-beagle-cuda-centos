@@ -1,10 +1,9 @@
-WARNING install-apt-packages.sh doesn't exist, ensure exists for build
 Bootstrap: docker
 From: nvidia/cuda:11.5.1-devel-centos7
 Stage: spython-base
 
 %files
-install-apt-packages.sh /opt/docker/
+install-apt_packages.sh /opt/docker/
 install-beagle.sh /opt/docker/
 install-beast.sh /opt/docker/
 %labels
