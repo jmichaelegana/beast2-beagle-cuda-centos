@@ -8,7 +8,7 @@ wget --quiet https://github.com/CompEvol/beast2/releases/download/v2.6.7/BEAST.v
 tar -xzpf BEASTv${beast_version}.Linux.tgz
 rm BEASTv${beast_version}.Linux.tgz
 
-mv BEASTv${beast_version}.Linux/bin/* /usr/local/bin
-mv BEASTv${beast_version}.Linux/lib/* /usr/local/lib
+mv beast/bin/* /usr/local/bin
+mv beast/lib/* /usr/local/lib
 
 beast -beagle_info
