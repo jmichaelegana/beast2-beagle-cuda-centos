@@ -12,3 +12,4 @@ mv beast/bin/* /usr/local/bin
 mv beast/lib/* /usr/local/lib
 
 beast -beagle_info
+packagemanager -add PhyDyn
