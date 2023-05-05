@@ -7,6 +7,9 @@ LABEL maintainer_other "Christopher Tomkins-Tinch <tomkinsc@broadinstitute.org>"
 RUN pwd
 
 COPY install-apt_packages.sh /opt/docker/
+
+ENV PATH="/usr/local/cmake/bin:$PATH"
+
 COPY install-beagle.sh /opt/docker/
 COPY install-beast.sh /opt/docker/
 
