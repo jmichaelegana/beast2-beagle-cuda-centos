@@ -21,11 +21,15 @@ ENV PATH /usr/local/cmake/bin:$PATH
 
 # Set default locale to en_US.UTF-8
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
+
+RUN /opt/docker/install-beagle.sh
+
+
 ENV LD_LIBRARY_PATH /usr/local/lib:${LD_LIBRARY_PATH}
 ENV PKG_CONFIG_PATH /usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 ENV LIBRARY_PATH /usr/local/cuda/lib64/stubs:${LIBRARY_PATH}
 
-RUN /opt/docker/install-beagle.sh
+
 
 RUN /opt/docker/install-beast.sh
 
