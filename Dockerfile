@@ -7,9 +7,6 @@ LABEL maintainer_other "Christopher Tomkins-Tinch <tomkinsc@broadinstitute.org>"
 RUN pwd
 
 COPY install-apt_packages.sh /opt/docker/
-
-ENV PATH="/usr/local/cmake/bin:$PATH"
-
 COPY install-beagle.sh /opt/docker/
 COPY install-beast.sh /opt/docker/
 
@@ -19,6 +16,8 @@ COPY install-beast.sh /opt/docker/
 # bzip2, liblz4-toolk, and pigz are useful for packaging and archival
 # google-cloud-sdk needed when using this in GCE
 RUN /opt/docker/install-apt_packages.sh
+
+ENV PATH /usr/local/cmake/bin:$PATH
 
 # Set default locale to en_US.UTF-8
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
