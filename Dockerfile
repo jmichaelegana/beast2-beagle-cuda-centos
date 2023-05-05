@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.5.1-devel-centos7
+FROM nvidia/cuda:12.1.1-devel-centos7
 
 LABEL maintainer "Daniel Park <dpark@broadinstitute.org>"
 LABEL maintainer_other "Christopher Tomkins-Tinch <tomkinsc@broadinstitute.org>"
